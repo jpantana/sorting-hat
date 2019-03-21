@@ -1,3 +1,13 @@
 body {
-    background-color: #eee;
+    background-color: white;
 }
+
+#sortingHat {
+    width: 15%;
+    float: right;
+}
+
+/* .jumbotron {
+    background-image: url(https://ih0.redbubble.net/image.596638566.7368/flat,550x550,075,f.u3.jpg);
+    background-repeat: no-repeat;
+} */
