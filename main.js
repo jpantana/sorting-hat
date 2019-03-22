@@ -22,27 +22,57 @@ const domStringBuilder = () => {
     
     //     domString += ``;
     // });
-  
-        // House Sorter 
         const hogSort = Math.ceil(Math.random() * 4);
+
+  
+        domString += `<div class="card" style="width: 18rem;">`;
+        domString += `  <img src="..." class="card-img-top" alt="...">
+        `;
+        domString += ``;
+        domString += ``;
+        // House Sorter 
         // console.log(hogSort);
         if (hogSort === 1) {
             console.log('Gryffindor');
             domString += `<p>'Gryffindor'</p>`;
-            domString += `<img src="https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwivzsnP1JThAhXqY98KHUKABSEQjRx6BAgBEAU&url=https%3A%2F%2Fwww.bhg.com%2Fshop%2Fyork-wallcoverings-harry-potter-hogwarts-house-crests-5pc-wall-accent-set-pf53d8f4a798db7160a5ed8c38864755e.html&psig=AOvVaw2WlEZUp5VeJmzO4Mg2FK5p&ust=1553306719570287">`;
+            domString += `<img class="card-img-top src="https://images.pottermore.com/bxd3o8b291gf/49zkCzoZlekCmSq6OsycAm/da6278c1af372f18f8b6a71b226e0814/PM_House_Pages_400_x_400_px_FINAL_CREST2.png?w=550&h=550&fit=thumb&f=center&q=85">`;
         } else if (hogSort === 2) {
             console.log('Hufflepuff');
             domString += `<p>'Hufflepuff'</p>`;
-            domString += `<img src="https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjx3o-N1ZThAhVqm-AKHRglC5QQjRx6BAgBEAU&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F159526011772866768%2F&psig=AOvVaw1CJL86Ta1-F50cjNX3HKRz&ust=1553306851624956">`;
+            domString += `<img class="card-img-top src="https://images.pottermore.com/bxd3o8b291gf/2GyJvxXe40kkkG0suuqUkw/e1a64ec404cf5f19afe9053b9d375230/PM_House_Pages_400_x_400_px_FINAL_CREST3.png?w=550&h=550&fit=thumb&f=center&q=85">`;
         } else if (hogSort === 3) {
             console.log('Ravenclaw');
             domString += `<p>'Ravenclaw'</p>`;
-            domString += `<img src="https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj16f3p1JThAhUyhuAKHYLVDBYQjRx6BAgBEAU&url=https%3A%2F%2Fwww.amazon.com%2FHarry-Potter-Magnet-Ravenclaw-Crest%2Fdp%2FB0018A390E&psig=AOvVaw1sUP9CRRZzo8cSXpQmg-hm&ust=1553306782154133">`;
+            domString += `<img class="card-img-top src="https://images.pottermore.com/bxd3o8b291gf/5pnnQ5puTuywEEW06w2gSg/91abff3d923b4785ed79e9abda07bd07/PM_House_Pages_400_x_400_px_FINAL_CREST.png?w=550&h=550&fit=thumb&f=center&q=85">`;
         } else if (hogSort === 4) {
             console.log('Slytherin');
             domString += `<p>'Slytherin';</p>`;
-            domString += `<img src="https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1280x1280/products/88362/91127/Harry-Potter-Slytherin-Crest-Official-wall-mounted-cardboard-cutout-buy-now-at-star__31920.1507640497.jpg?c=2?imbypass=on">`;
+            domString += `<img class="card-img-top src="https://images.pottermore.com/bxd3o8b291gf/4U98maPA5aEUWcO8uOisOq/e01e17cc414b960380acbf8ace1dc1d5/PM_House_Pages_400_x_400_px_FINAL_CREST4.png?w=550&h=550&fit=thumb&f=center&q=85">`;
         };
+        domString += `</div>`;
+
+
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
+
+
+
+
+
+
 
     printToDom('studentCards', domString);
 };
