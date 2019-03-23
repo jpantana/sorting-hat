@@ -11,3 +11,19 @@ body {
     background-image: url(https://ih0.redbubble.net/image.596638566.7368/flat,550x550,075,f.u3.jpg);
     background-repeat: no-repeat;
 } */
+
+.card-img-top {
+    object-fit: cover;
+}
+
+.card {
+    text-align: center;
+}
+
+.card-title {
+
+}
+
+.card-text {
+
+}
