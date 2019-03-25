@@ -10,9 +10,17 @@ const printToDom = (divId, textToPrint) => {
     selectedDiv.innerHTML = textToPrint;
 };
 
+// this works for sorting
+const studentSort = () => {
+    students.sort(function(a, b){
+        if(a.name < b.name) { return -1; }
+        if(a.name > b.name) { return 1; }
+        return 0;  
+    })
+};
 
 const domStringBuilder = () => {
-    console.log('domStringBuilder is running', students);
+    // console.log('domStringBuilder is running', students);
         let domString = ``;
         students.forEach((student) => { // House Sorter 
             // console.log(student);
@@ -32,6 +40,7 @@ const domStringBuilder = () => {
         domString += `</div>`;
     }); // end forEach
     // console.log(domString);
+    
     printToDom('studentCards', domString);
     expelEvent();
 };
@@ -81,7 +90,8 @@ const studentAdd = () => {
         name: document.getElementById('hoggyName').value,
         house: selectHouse(),
     }
-     students.push(newStudent);   
+     students.push(newStudent);
+     studentSort();
      domStringBuilder();
 };
 
@@ -123,7 +133,6 @@ const removeStudent = (e) => {
 };
 
 const deathEatersDom = () => {
-   
     let domString = ``;
         deathEaters.forEach((deathEater) => {
             domString += `<h2 class="h2 text-center">Known Death Eaters</h2>`
@@ -134,7 +143,6 @@ const deathEatersDom = () => {
         }); 
     // console.log("death eaters dom is working");
     printToDom('deathEatersDiv', domString);
-
 };
 
 
