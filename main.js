@@ -20,11 +20,20 @@ const studentSort = () => {
 };
 
 const domStringBuilder = () => {
-    // console.log('domStringBuilder is running', students);
         let domString = ``;
         students.forEach((student) => { // House Sorter 
-            // console.log(student);
-        domString += `<div class="card col-4 m">`;
+        if (student.house === 'Gryffindor') {
+            domString += `<div class="gryfCard card col-4 m">`;
+        }
+        else if (student.house === 'Hufflepuff') {
+            domString += `<div class="huffCard card col-4 m">`;
+        }
+        else if (student.house === 'Ravenclaw') {
+            domString += `<div class="raveCard card col-4 m">`;
+        }
+        else if (student.house === 'Slytherin') {
+            domString += `<div class="slytCard card col-4 m">`;
+        }
         domString += `  <h2 class="card-title">${student.name}</h2>`;
         domString += `  <h5 class="card-text">${student.house}</h5>`;
         if (student.house === 'Gryffindor') {
@@ -38,9 +47,7 @@ const domStringBuilder = () => {
         }
         domString += `  <button type="button" id="${student.name}" class="btn expel btn-danger">Expel</button>`;
         domString += `</div>`;
-    }); // end forEach
-    // console.log(domString);
-    
+    }); // end forEach    
     printToDom('studentCards', domString);
     expelEvent();
 };
@@ -59,6 +66,7 @@ const domFormBuilder = () => {
         secondButtonEvent();
 };
 
+//modal attempt
 // const expelStudent = () => {
 //     let domString = '';
 //     // modal
@@ -90,9 +98,14 @@ const studentAdd = () => {
         name: document.getElementById('hoggyName').value,
         house: selectHouse(),
     }
-     students.push(newStudent);
-     studentSort();
-     domStringBuilder();
+    let testInput = document.getElementById('hoggyName').value;
+    if (testInput.value !== null && testInput === "") {
+        alert(`You must enter a student name.`);
+    } else {
+        students.push(newStudent);
+        studentSort();
+        domStringBuilder();
+    }
 };
 
 
@@ -132,13 +145,14 @@ const removeStudent = (e) => {
     deathEatersDom();
 };
 
+
 const deathEatersDom = () => {
     let domString = ``;
         deathEaters.forEach((deathEater) => {
-            domString += `<h2 class="h2 text-center">Known Death Eaters</h2>`
-            domString += `<div class="card col-4 m">`;
-            domString += `  <h2 class="card-title">${deathEater.name} <span class="badge badge-secondary">Death Eater</span></h2>`;
-            domString += `  <h5 class="card-text">${deathEater.house}</h5>`;
+            domString += `<div class="card col-4 m deathEaterCard">`;
+            domString += `  <span class="badge badge-secondary" style="margin: auto;height: 1.7em;font-size: 1.5em;">Death Eater</span>`
+            domString += `  <h3 class="h3 card-title text-center">${deathEater.name}</h3>`;
+            domString += `  <h5 class="card-text"><strike>${deathEater.house}</strike></h5>`;
             domString += `</div>`;
         }); 
     // console.log("death eaters dom is working");

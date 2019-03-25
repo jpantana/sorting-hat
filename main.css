@@ -1,10 +1,11 @@
 body {
     background-color: white;
+    padding: 10px;
+    margin: 10px;
 
 }
 
 .container {
-
    
 }
 
@@ -23,20 +24,66 @@ form {
     border-radius: 5px;
 }
 
+#studentCards {
+    background-image: linear-gradient(rgb(223, 155, 6), rgba(255,255,255, .7));
+    border: 1px solid #eee;
+    border-radius: 6px;
+    /* background-image: url(../imgs/HogFog2.png);
+    background-size: 80%;
+    background-repeat: no-repeat; */
+}
+
+.gryfCard {
+    background-color: rgb(141, 0, 0);
+}
+
+.huffCard {
+    background-color: rgb(241, 184, 0);
+}
+
+.raveCard {
+    background-color: rgb(0, 78, 128);
+}
+
+.slytCard {
+    background-color: rgb(0,84, 22);
+}
+
+.jumbotron {
+    background-image: url(./imgs/HogFog2.png);
+    background-position: right;
+    background-position-y: 0px; 
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-color: rgb(247,247,247);
+    shadow p-3 mb-5 bg-white rounded
+}
+
 .card-img-top {
     object-fit: cover;
 }
 .card-img-top:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: .7s;
 }
 
+.display-4 {
+    font-family: 'Lora', serif;
+    margin-bottom: 20px;
+    color:rgb(0, 62, 81);
+}
+
+.sortHatFont {
+    font-family: 'Oxygen', sans-serif;
+    color:rgb(0, 62, 81);
+}
 .card {
     text-align: center;
     max-width: 31%;
     margin: auto;
     margin-top: 40px;
     padding: 10px;
+    margin-bottom: 100px;
 }
 
 .card-title {
@@ -45,4 +92,22 @@ form {
 
 .card-text {
 
+}
+
+.deathEaterCard {
+    background-image: url(https://www.shareicon.net/download/2015/11/25/677549_snake.svg);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    opacity: .7;
+    max-width: 28%;
+    margin: auto;
+    margin-top: 40px;
+    min-height: 300px;
+    background-position: center;
+    margin-bottom: 200px;
+}
+#deathEatersDiv {
+    background-image: linear-gradient(rgba(0, 84, 22, .7), rgba(255,255,255, .7));
+    border: 1px solid #eee;
+    border-radius: 6px;
 }
