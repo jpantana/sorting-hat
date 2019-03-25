@@ -1,6 +1,6 @@
 const students = [];
 const house = ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
-const exspelled = [];
+const deathEaters = [];
 
 
 const printToDom = (divId, textToPrint) => {
@@ -10,6 +10,14 @@ const printToDom = (divId, textToPrint) => {
     selectedDiv.innerHTML = textToPrint;
 };
 
+// this works for sorting
+const studentSort = () => {
+    students.sort(function(a, b){
+        if(a.name < b.name) { return -1; }
+        if(a.name > b.name) { return 1; }
+        return 0;  
+    })
+};
 
 const domStringBuilder = () => {
     // console.log('domStringBuilder is running', students);
@@ -17,8 +25,8 @@ const domStringBuilder = () => {
         students.forEach((student) => { // House Sorter 
             // console.log(student);
         domString += `<div class="card col-4 m">`;
-        domString += `<h2 class="card-title">${student.name}</h2>`;
-        domString += `<h5 class="card-text">${student.house}</h5>`;
+        domString += `  <h2 class="card-title">${student.name}</h2>`;
+        domString += `  <h5 class="card-text">${student.house}</h5>`;
         if (student.house === 'Gryffindor') {
             domString += `<img class="card-img-top" src="https://images.pottermore.com/bxd3o8b291gf/49zkCzoZlekCmSq6OsycAm/da6278c1af372f18f8b6a71b226e0814/PM_House_Pages_400_x_400_px_FINAL_CREST2.png?w=550&h=550&fit=thumb&f=center&q=85">`;
         } else if (student.house === 'Hufflepuff') {
@@ -31,9 +39,24 @@ const domStringBuilder = () => {
         domString += `  <button type="button" id="${student.name}" class="btn expel btn-danger">Expel</button>`;
         domString += `</div>`;
     }); // end forEach
-    console.log(domString);
+    // console.log(domString);
+    
     printToDom('studentCards', domString);
     expelEvent();
+};
+
+
+const domFormBuilder = () => {
+    let domString = ``;
+        domString += `<form>`;
+        domString += `  <div class="form-group">`;
+        domString += `     <label for="hoggyName"><em>Witch's</em> or <em>Wizard's</em> Full Name</label>`;
+        domString += `     <input type="text" class="form-control" id="hoggyName" aria-describedby="emailHelp" placeholder="Enter full name">`;
+        domString += `  </div>`;
+        domString += `      <button type="submit" id="sortMe" class="btn btn-primary">Let's Get Sorted!</button>`;
+        domString += `</form>`;
+        printToDom('sortingForm', domString);
+        secondButtonEvent();
 };
 
 // const expelStudent = () => {
@@ -67,14 +90,15 @@ const studentAdd = () => {
         name: document.getElementById('hoggyName').value,
         house: selectHouse(),
     }
-     students.push(newStudent);   
+     students.push(newStudent);
+     studentSort();
      domStringBuilder();
 };
 
 
 const selectHouse = () => {
     const hogSort = (Math.floor(Math.random() * 4) +1);
-    console.log(hogSort);
+    // console.log(hogSort);
     if (hogSort === 1) {
         return 'Gryffindor';
     } else if (hogSort === 2) {
@@ -86,58 +110,48 @@ const selectHouse = () => {
     }
 };
 
-
-const removeStudent = (e) => {
-    console.log(e.currentTarget.id);
-    students.forEach((object, i) => {
-        if (object.name === e.currentTarget.id) {
-            console.log(students);
-            students.splice(i, 1);
-            console.log(students);
-        }
-    })
-    domStringBuilder();
-};
-
-
-
 const expelEvent = () => {
     let everyCard = document.querySelectorAll('.expel');
-    console.log(everyCard);
+    // console.log(everyCard);
     everyCard.forEach((card) => {
     card.addEventListener('click', removeStudent);
     });
 };
 
 
+const removeStudent = (e) => {
+    // console.log(e.currentTarget.id);
+    students.forEach((object, i) => {
+        if (object.name === e.currentTarget.id) {;
+            deathEaters.push(object);
+            students.splice(i, 1);
+        }
+    })
+    // console.log(removeStudent);
+    domStringBuilder();
+    deathEatersDom();
+};
 
-const domFormBuilder = () => {
+const deathEatersDom = () => {
     let domString = ``;
-        domString += `<form>`;
-        domString += `  <div class="form-group">`;
-        domString += `     <label for="hoggyName">Full Name</label>`;
-        domString += `     <input type="text" class="form-control" id="hoggyName" aria-describedby="emailHelp" placeholder="Enter full name">`;
-        domString += `  </div>`;
-        domString += `      <button type="submit" id="sortMe" class="btn btn-primary">Let's Get Sorted!</button>`;
-        domString += `</form>`;
-    
-        
-        printToDom('sortingForm', domString);
-        secondEvent();
-    // let x = document.getElementsByClassName('expel');
-    // console.log(x.length);
-    // for (let i = 0; i < x.length; i++) {
-    //     console.log(x[i]);
-    // }
-
- 
+        deathEaters.forEach((deathEater) => {
+            domString += `<h2 class="h2 text-center">Known Death Eaters</h2>`
+            domString += `<div class="card col-4 m">`;
+            domString += `  <h2 class="card-title">${deathEater.name} <span class="badge badge-secondary">Death Eater</span></h2>`;
+            domString += `  <h5 class="card-text">${deathEater.house}</h5>`;
+            domString += `</div>`;
+        }); 
+    // console.log("death eaters dom is working");
+    printToDom('deathEatersDiv', domString);
 };
 
 
 const buttonEvents = () => {
     document.getElementById('letsGetSorting').addEventListener('click', domFormBuilder);
 };
-const secondEvent = () => {
+
+
+const secondButtonEvent = () => {
     document.getElementById('sortMe').addEventListener('click', studentAdd);
 };
 
