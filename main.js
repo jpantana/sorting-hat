@@ -58,7 +58,7 @@ const domFormBuilder = () => {
         domString += `<form>`;
         domString += `  <div class="form-group">`;
         domString += `     <label for="hoggyName"><em>Witch's</em> or <em>Wizard's</em> Full Name</label>`;
-        domString += `     <input type="text" class="form-control" id="hoggyName" aria-describedby="emailHelp" placeholder="Enter full name">`;
+        domString += `     <input autocomplete="off" type="text" class="form-control" id="hoggyName" aria-describedby="emailHelp" placeholder="Enter full name">`;
         domString += `  </div>`;
         domString += `      <button type="submit" id="sortMe" class="btn btn-primary">Let's Get Sorted!</button>`;
         domString += `</form>`;
